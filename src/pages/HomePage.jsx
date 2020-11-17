@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-function Home() {
+function HomePage() {
     return (
         <div className="jumbotron">
             <h1>Welcome to the Website</h1>
@@ -11,4 +11,4 @@ function Home() {
     )
 }
 
-export default Home
+export default HomePage
