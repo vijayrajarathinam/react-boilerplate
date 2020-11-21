@@ -4,7 +4,7 @@ import propTypes from 'prop-types'
 
 
 
-const CourseList = ({courses}) => {
+const CourseList = ({courses, onDelete}) => {
     return (
         <table className="table">
             <thead>
@@ -13,6 +13,7 @@ const CourseList = ({courses}) => {
                     <th>Title</th>
                     <th>Author</th>
                     <th>Category</th>
+                    <th/>
                 </tr>
             </thead>
             <tbody>
@@ -22,9 +23,10 @@ const CourseList = ({courses}) => {
                             Watch
                         </a>
                     </td>
-                <td><Link to={"/courses/"+course.slug}>{course.title}</Link></td>
+                <td><Link to={"/course/"+course.slug}>{course.title}</Link></td>
                 <td>{course.authorName}</td>
                 <td>{course.category}</td>
+                <td><button className="btn btn-outline-danger" onClick={() => onDelete(course)}>Delete</button></td>
                 </tr> )}
             </tbody>
         </table>
@@ -32,7 +34,8 @@ const CourseList = ({courses}) => {
 }
 
 CourseList.propTypes = {
-    courses: propTypes.array.isRequired
+    courses: propTypes.array.isRequired,
+    onDelete: propTypes.func.isRequired
 }
 
 export default CourseList
